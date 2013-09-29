@@ -1,0 +1,36 @@
+<div class="contextual">
+	<%= link_to_if_authorized l(:button_edit), {:controller => 'mail_users', :action => 'edit', :id => @mail_user } , :class => 'icon icon-edit' %>
+</div>
+
+<h2><%= h @mail_user.mail %></h2>
+
+<div class="splitcontentleft">
+<ul>
+	<li><%= l(:field_mail)%> : <%= h(@mail_user.mail) %></li>
+</ul>
+</div>
+
+<div class="splitcontentright">
+<% if (@mail_messages.blank?) %>
+  <p class="nodata"><%= l(:label_no_data) %></p>
+<% else %>
+<table class="list">
+  <thead><tr>
+    <%= sort_header_tag('id',     :caption => '#')%>
+    <%= sort_header_tag('subject',:caption => l(:field_subject))%>
+    <%= sort_header_tag('date',   :caption => l(:label_date)) %>
+  </tr></thead>
+  <tbody>
+  <% @mail_messages.each do |message| %>
+    <tr class="<%= cycle('odd','even') %>">
+      <td><%= message.id %></td>
+      <td><%= link_to_mailmessage(message) %></td>
+      <td><%= link_to_activity(message) %></td>
+    </tr>
+  <% end %>
+  </tbody>	  
+</table>
+<% end %>
+</div>
+
+<% html_title @mail_user.mail %>

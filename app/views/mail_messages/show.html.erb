@@ -1,0 +1,26 @@
+<div class="contextual">
+<%= link_to_show_area('new_reply','reply_area',l(:label_mail_message_new_reply), {:controller => 'mail_messages', :action => 'new_reply',:id => @mail_message.id}) %>
+</div>
+
+<h2>
+<%= h "#{l(:label_mail_message)}##{@mail_message.id} (" -%>
+<%= link_to_ticket @mail_message -%>
+<%= h ") #{@mail_message.subject}" -%>
+</h2>
+
+<div class="mail_message_show">
+<div id="issue">
+	<%= render :partial => 'issues/list_simple', :locals => {:issues => [@mail_message.issue]} %>
+	<%= context_menu issues_context_menu_path %>
+</div>
+<%= render :partial => 'show' %>
+<div class="mail_masssage_body">
+   <%= textilizable @mail_message.body, :attachments => @mail_message.ticket.attachments  %>
+</div>
+
+<%= area_tag 'reply_area' %>
+
+</div>
+
+<% html_title( "#{l(:label_mail_message)}##{@mail_message.id} #{@mail_message.subject}" )-%>
+

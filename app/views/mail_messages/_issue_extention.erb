@@ -1,0 +1,10 @@
+<% base = (mail_message.ticket_type=='Issue') ? '.description'  : "#change-#{mail_message.ticket_id}" -%>
+<% target_id = "mail_message_#{mail_message.id}" -%>
+<%= javascript_tag do %>
+$('<%= "#show_#{target_id}" -%>').ready(function(){
+$('<%= "#{base}" -%> .contextual').prepend('<%= link_to_show_area( "#{target_id}", "show_#{target_id}",l(:label_mail_message_show),{:controller => 'mail_messages', :action => 'show',:project_id => @project, :id => mail_message.id, :short =>1 }) + link_to_show_area( "#{target_id}", "show_#{target_id}",l(:label_mail_message_new_reply),{:controller => 'mail_messages', :action => 'new_reply', :project_id => @project, :id => mail_message.id })  -%>');
+  <%= string_of_javascript_for_area.html_safe -%>
+});
+<% end %>
+
+<%= area_tag "show_#{target_id}" %>

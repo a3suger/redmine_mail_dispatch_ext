@@ -1,0 +1,8 @@
+*~
+*.swo
+*.swp
+Gemfile.lock
+*.txt
+*.bat
+ungit/
+coverage/

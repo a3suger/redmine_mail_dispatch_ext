@@ -1,0 +1,22 @@
+# English strings go here for Rails i18n
+en:
+  label_mail_message: "Mail Message"
+  label_mail_message_plural: "Mail Messages"
+  label_mail_message_new_mail: "Send a new Mail"  
+  label_mail_message_new_reply: "Reply to Mail Message"  
+  label_mail_message_show: "Show Mail Message"
+  #
+  label_mail_user: "Mail Users"
+  label_mail_user_plural: "Mail Users"
+  label_mail_user_new: "New Mail User"
+  #  
+  field_to: "To"
+  field_cc: "Cc"
+  field_mail_from: "Mail From"
+  field_date: "Date"
+  field_body: "Body"
+  # 
+  my_label: "My label"
+  project_module_mail_messages: "Mail Messages"
+  permission_view_mail_messages: "View Mail Messages"
+  permission_send_mail_messages: "Reply To Mail Messages"  

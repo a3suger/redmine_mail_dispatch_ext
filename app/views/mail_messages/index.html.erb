@@ -1,0 +1,38 @@
+<div class="contextual">
+	<%= link_to_if_authorized l(:label_mail_user_plural), {:controller => 'mail_users', :action => 'index', :params => {:project =>@project} }  %>
+	<%= link_to_show_area('new_mail','show_area',l(:label_mail_message_new_mail), {:controller => 'mail_messages', :action => 'new_mail'}) %>
+</div>
+
+<h2><%= l(:label_mail_message_plural) %></h2>
+
+<% if (@mail_messages.blank?) %>
+  <p class="nodata"><%= l(:label_no_data) %></p>
+<% else %>
+<table class="list">
+  <thead>
+    <tr>
+      <%= sort_header_tag('id',:caption =>'#') %>
+      <th><%= l(:field_mail_from)%></th>
+      <%= sort_header_tag('subject',:caption => l(:field_subject)) %>
+      <%= sort_header_tag('date',   :caption => l(:field_date)) %>
+    </tr>
+  </thead>
+  <tbody>
+  <% @mail_messages.each do |message| %>
+    <tr class="<%= cycle('odd','even') %>">
+      <td><%= link_to(message.id,project_mail_message_path(@project,message)) %></td>
+      <td><%= link_to_sender(message) %></td>
+      <td><%= link_to_show_area('show','show_area',h(message.subject),{:controller => 'mail_messages',:action => 'show', :project_id => @project, :id => message.id }) %></td>
+      <td><%= link_to_activity(message) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<p class="pagination"><%= pagination_links_full @mail_message_pages,@mail_message_count %></p> 
+<% end %>
+
+<%= area_tag 'show_area' %>
+
+<%= context_menu issues_context_menu_path %>
+
+<% html_title(l(:label_mail_message_plural)) -%>

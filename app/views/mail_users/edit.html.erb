@@ -1,0 +1,10 @@
+<div class="contextual">
+<%= delete_link mail_user_path(@mail_user) %>
+</div>
+<div>
+<%= labelled_form_for @mail_user do |user| %>
+	<%= render :partial => 'form', :locals => {:f => user} %>
+	<p><%= submit_tag l(:button_save) %></p>
+<% end %>
+</div>
+<% html_title(l(:label_mail_user),@mail_user.mail, l(:label_administration)) -%>

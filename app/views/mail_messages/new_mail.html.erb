@@ -1,0 +1,40 @@
+<% @tag_id = "mail_message_table_#{@mail_message.id.nil? ? 0 : @mail_message.id}" %>
+<%= javascript_tag do %>
+
+$('<%= "##{@tag_id}" -%>').ready(function(){
+	target='<%= "##{@tag_id}" -%>';
+	mail_dispatch_ext.showAddButton(target);
+	<% if @mail_message.sender.nil? %>
+	  <%= "mail_dispatch_ext.addRow('to','',target);".html_safe %> 
+        <% else %>
+	  <%= "mail_dispatch_ext.addRow('to','#{@mail_message.sender_addr}',target);".html_safe %> 
+        <% end %>
+	<% @mail_message.receivers.each do |receiver| %>
+		<% case receiver.category %>
+		<% when 'to' %>
+			<%= "mail_dispatch_ext.addRow('to','#{receiver.receiver.mail}',target);".html_safe %> 
+		<% when 'cc' %>
+			<%= "mail_dispatch_ext.addRow('cc','#{receiver.receiver.mail}',target);".html_safe %> 
+		<% end %>
+	<% end %>
+});
+
+<% end -%>
+
+<h3><%= @mail_message.id.nil? ? l(:label_mail_message_new_mail) : l(:label_mail_message_new_reply) -%></h3>
+<%= form_tag( send_mail_or_reply_path(), :method => :post) do %>
+<div class="reply box">
+<fieldset class="tabular">
+   <div id='<%= "#{@tag_id}" -%>' > 
+   <p><label><%= l(:field_subject)%></label><input type="text" name="subject" value="<%= make_reply_subject() -%>" size="80"/><span class="button"></span></p>
+   </div>
+   <p><label><%= l(:field_body) %></label> 
+   <textarea name="body" cols="80" rows="20"><%= make_reply_content() %></textarea></p>
+</fieldset>
+</div>
+<% make_hidden_id -%>
+<input type="submit" name="Post" />
+<% end %>
+
+<% html_title( @mail_message.id.nil? ? l(:label_mail_message_new_mail) : l(:label_mail_message_new_reply) ) %>
+

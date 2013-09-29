@@ -1,0 +1,19 @@
+<div class="details">
+<table class="attributes">
+<tbody>
+<tr><th><%= l(:field_mail_from) %></th><td><%= link_to_sender(@mail_message)     %></td></tr>
+<tr><th><%= l(:field_subject)%></th><td><%= link_to_mailmessage(@mail_message)%></td></tr>
+<tr><th><%= l(:field_date)   %></th><td><%= link_to_activity(@mail_message)   %></td></tr>
+<% unless (@mail_message.tos.blank?) %>
+    <% @mail_message.tos.each do |to| %>
+    <tr><th><%= l(:field_to)%></th><td><%= h(to.mail) %></td></tr>
+    <% end %>
+<% end %>
+<% unless (@mail_message.ccs.blank?) %>
+    <% @mail_message.ccs.each do |to| %>
+    <tr><th><%= l(:field_cc)%></th><td><%= h(to.mail) %></td></tr>
+    <% end %>
+  <% end %>
+</tbody>
+</table>
+</div>

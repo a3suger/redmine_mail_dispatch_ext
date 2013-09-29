@@ -1,0 +1,20 @@
+mail_messages_001: 
+  id: 1
+  messageid: <51F0BBF2.9060207@example.org>
+  subject: Can't print resipes
+  date: 2006-07-19 21:04:21 +02:00
+  ticket_type: Issue
+  ticket_id: 2
+  sender_id: 2
+# parent: nil
+  project_id: 1
+mail_messages_002: 
+  id: 2
+  messageid: <1234567890xyz@example.com>
+  subject: Re:Can't print resipes
+  date: 2006-07-19 23:04:21 +02:00
+  ticket_type: Journal
+  ticket_id: 2
+  sender_id: 2
+  parent: 1
+  project_id: 1

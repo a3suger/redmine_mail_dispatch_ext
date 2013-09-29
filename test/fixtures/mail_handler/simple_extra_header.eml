@@ -1,0 +1,39 @@
+Return-Path: <meeting-admin@example.org>
+X-Original-To: akira@example.org
+Delivered-To: akira@example.org
+Received: from www.example.org (localhost.example.org [127.0.0.1])
+	by www.example.org (Postfix) with ESMTP id 5B504192827;
+	Thu, 25 Jul 2013 14:47:29 +0900 (JST)
+Received: from [192.168.11.2] (lime.example.org [192.0.2.197])
+	by www.example.org (Postfix) with ESMTPSA id 11AEF192824
+	for <meeting@example.org>; Thu, 25 Jul 2013 14:47:29 +0900 (JST)
+Delivered-To: meeting@example.org
+Date: Thu, 25 Jul 2013 14:47:30 +0900
+From: jsmith@somenet.foo
+Reply-To: meeting@example.org
+Subject: Extra Heder
+To: "meeting@example.org" <meeting@example.org>
+Cc: "Boss" <boss@example.com>
+X-Redmine-Override-Tracker: Support request
+X-Redmine-Override-Status: Closed
+Message-Id: <51F0BBF2.9060EEE@example.org>
+X-ML-Name: meeting
+X-Mail-Count: 14544
+X-MLServer: fml [fml 4.0 STABLE (20030202/4.0.4_ALPHA)]; post only (anyone can post)
+X-ML-Info: If you have a question, send e-mail with the body
+	"help" (without quotes) to the address meeting-ctl@example.org;
+	help=<mailto:meeting-ctl@example.org?body=help>
+User-Agent: Mozilla/5.0 (Windows NT 6.2; WOW64; rv:17.0) Gecko/20130620 Thunderbird/17.0.7
+Mime-Version: 1.0
+Content-Type: text/plain; charset=ISO-2022-JP
+Content-Transfer-Encoding: 7bit
+Precedence: bulk
+Lines: 1
+List-Id: meeting.example.org
+List-Software: fml [fml 4.0 STABLE (20030202/4.0.4_ALPHA)]
+List-Post: <mailto:meeting@example.org>
+List-Owner: <mailto:meeting-admin@example.org>
+List-Help: <mailto:meeting-ctl@example.org?body=help>
+List-Unsubscribe: <mailto:meeting-ctl@example.org?body=unsubscribe>
+
+body

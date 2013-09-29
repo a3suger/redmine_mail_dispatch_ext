@@ -1,0 +1,22 @@
+﻿# English strings go here for Rails i18n
+ja:
+  label_mail_message: メールメッセージ
+  label_mail_message_plural: メールメッセージ
+  label_mail_message_new_mail: 新規メールの送信  
+  label_mail_message_new_reply: メールの返信  
+  label_mail_message_show: メールの表示
+  #
+  label_mail_user:  メール送信者
+  label_mail_user_plural: メール送信者
+  label_mail_user_new: 新しいメール送信者
+  #  
+  field_to: "To"
+  field_cc: "Cc"
+  field_mail_from: メールの送信元
+  field_date: 日付
+  field_body: 本文
+  # 
+  my_label: "My label"
+  project_module_mail_messages: メールメッセージ
+  permission_view_mail_messages: メールメッセージの閲覧
+  permission_send_mail_messages: メールの返信 
